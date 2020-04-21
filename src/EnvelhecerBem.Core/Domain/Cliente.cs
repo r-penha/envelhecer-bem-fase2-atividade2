@@ -7,10 +7,11 @@ namespace EnvelhecerBem.Core.Domain
     {
         [Required]
         [RegularExpression(@"^\d{11}$")]
+        [MaxLength(11)]
         public string Cpf { get;  set; }
      
         [Required]
-        [MaxLength(128, ErrorMessage = "Número de caracteres máximo excedido.")]
+        [MaxLength(128)]
         public string Nome { get;  set; }
 
         [Required]
