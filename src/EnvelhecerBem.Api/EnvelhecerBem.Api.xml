@@ -11,18 +11,88 @@
             <remarks>
             O cabeçalho da resposta <i><strong>Location</strong></i> informará a url do novo <i>resource</i> criado.
             </remarks>
-            <param name="cliente"></param>
+            <param name="cliente">Definição do cliente</param>
             <response code="201">ID do novo cliente criado</response>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ClientesController.Put(System.Guid,EnvelhecerBem.Core.Domain.Cliente)">
+            <summary>
+            Alterar informações do cliente
+            </summary>
+            <param name="id">ID do cliente a ser alterado</param>
+            <param name="cliente">Nova definição do cliente</param>
+            <returns></returns>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ClientesController.Delete(System.Guid)">
+            <summary>
+            Excluir registro do cliente
+            </summary>
+            <param name="id">ID do cliente a ser excluído</param>
+            <returns></returns>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ClientesController.Get(System.Guid)">
+            <summary>
+            Recuperar o cliente pelo seu ID
+            </summary>
+            <param name="id">ID do cliente a ser recuperado</param>
+            <returns></returns>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ClientesController.Get(System.String)">
+            <summary>
+            Pesquisar clientes pelo nome ou pelo CPF
+            </summary>
+            <remarks>
+            O termo de pesquisa pode ser:
+            - Nome do cliente ou parte dele
+            - CPF do cliente
+            Caso não seja informado nenhum termo, todos os registros serão retornados.
+            </remarks>
+            <param name="q">Termo utilizado para pesquisa</param>
+            <returns>Array com os registros encontrados</returns>
         </member>
         <member name="M:EnvelhecerBem.Api.Controllers.ParceirosController.Post(EnvelhecerBem.Core.Domain.Parceiro)">
             <summary>
-            Adiciona novo parceiro
+            Adicionar novo parceiro
             </summary>
             <remarks>
             O cabeçalho da resposta <i><strong>Location</strong></i> informará a url do novo <i>resource</i> criado.
             </remarks>
-            <param name="parceiro"></param>
+            <param name="parceiro">Definição do parceiro</param>
             <response code="201">ID do novo parceiro criado</response>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ParceirosController.Put(System.Guid,EnvelhecerBem.Core.Domain.Parceiro)">
+            <summary>
+            Alterar informações do parceiro
+            </summary>
+            <param name="id">ID do parceiro a ser alterado</param>
+            <param name="parceiro">Nova definição do parceiro</param>
+            <returns></returns>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ParceirosController.Delete(System.Guid)">
+            <summary>
+            Excluir registro do parceiro
+            </summary>
+            <param name="id">ID do parceiro a ser excluído</param>
+            <returns></returns>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ParceirosController.Get(System.Guid)">
+            <summary>
+            Recuperar o parceiro pelo seu ID
+            </summary>
+            <param name="id">ID do parceiro a ser recuperado</param>
+            <returns></returns>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ParceirosController.Get(System.String)">
+            <summary>
+            Pesquisar parceiros pela razão social ou pelo CNPJ
+            </summary>
+            <remarks>
+            O termo de pesquisa pode ser:
+            - Razão social ou parte dela
+            - CNPJ do parceiro
+            Caso não seja informado nenhum termo, todos os registros serão retornados.
+            </remarks>
+            <param name="q">Termo utilizado para pesquisa</param>
+            <returns>Array com os registros encontrados</returns>
         </member>
     </members>
 </doc>

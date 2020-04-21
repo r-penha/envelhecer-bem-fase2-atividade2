@@ -28,7 +28,7 @@ namespace EnvelhecerBem.Api.Controllers
         /// <remarks>
         /// O cabeçalho da resposta <i><strong>Location</strong></i> informará a url do novo <i>resource</i> criado.
         /// </remarks>
-        /// <param name="cliente"></param>
+        /// <param name="cliente">Definição do cliente</param>
         /// <response code="201">ID do novo cliente criado</response>
         [HttpPost]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
@@ -48,7 +48,13 @@ namespace EnvelhecerBem.Api.Controllers
                 return StatusCode(500, "Erro ao registrar cliente.");
             }
         }
-
+        
+        /// <summary>
+        /// Alterar informações do cliente
+        /// </summary>
+        /// <param name="id">ID do cliente a ser alterado</param>
+        /// <param name="cliente">Nova definição do cliente</param>
+        /// <returns></returns>
         [HttpPut]
         [Route("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -69,6 +75,11 @@ namespace EnvelhecerBem.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Excluir registro do cliente
+        /// </summary>
+        /// <param name="id">ID do cliente a ser excluído</param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -88,6 +99,11 @@ namespace EnvelhecerBem.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Recuperar o cliente pelo seu ID
+        /// </summary>
+        /// <param name="id">ID do cliente a ser recuperado</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id:guid}")]
         [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
@@ -110,6 +126,17 @@ namespace EnvelhecerBem.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Pesquisar clientes pelo nome ou pelo CPF
+        /// </summary>
+        /// <remarks>
+        /// O termo de pesquisa pode ser:
+        /// - Nome do cliente ou parte dele
+        /// - CPF do cliente
+        /// Caso não seja informado nenhum termo, todos os registros serão retornados.
+        /// </remarks>
+        /// <param name="q">Termo utilizado para pesquisa</param>
+        /// <returns>Array com os registros encontrados</returns>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Cliente>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

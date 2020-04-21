@@ -23,12 +23,12 @@ namespace EnvelhecerBem.Api.Controllers
         }
 
         /// <summary>
-        /// Adiciona novo parceiro
+        /// Adicionar novo parceiro
         /// </summary>
         /// <remarks>
         /// O cabeçalho da resposta <i><strong>Location</strong></i> informará a url do novo <i>resource</i> criado.
         /// </remarks>
-        /// <param name="parceiro"></param>
+        /// <param name="parceiro">Definição do parceiro</param>
         /// <response code="201">ID do novo parceiro criado</response>
         [HttpPost]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
@@ -49,6 +49,12 @@ namespace EnvelhecerBem.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Alterar informações do parceiro
+        /// </summary>
+        /// <param name="id">ID do parceiro a ser alterado</param>
+        /// <param name="parceiro">Nova definição do parceiro</param>
+        /// <returns></returns>
         [HttpPut]
         [Route("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -69,6 +75,11 @@ namespace EnvelhecerBem.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Excluir registro do parceiro
+        /// </summary>
+        /// <param name="id">ID do parceiro a ser excluído</param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -88,6 +99,11 @@ namespace EnvelhecerBem.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Recuperar o parceiro pelo seu ID
+        /// </summary>
+        /// <param name="id">ID do parceiro a ser recuperado</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id:guid}")]
         [ProducesResponseType(typeof(Parceiro), StatusCodes.Status200OK)]
@@ -110,6 +126,17 @@ namespace EnvelhecerBem.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Pesquisar parceiros pela razão social ou pelo CNPJ
+        /// </summary>
+        /// <remarks>
+        /// O termo de pesquisa pode ser:
+        /// - Razão social ou parte dela
+        /// - CNPJ do parceiro
+        /// Caso não seja informado nenhum termo, todos os registros serão retornados.
+        /// </remarks>
+        /// <param name="q">Termo utilizado para pesquisa</param>
+        /// <returns>Array com os registros encontrados</returns>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Parceiro>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -120,7 +147,7 @@ namespace EnvelhecerBem.Api.Controllers
             try
             {
                 if (string.IsNullOrWhiteSpace(q)) return Ok(await _service.ListarParceiros());
-                Expression<Func<Parceiro, bool>> expression = x => x.RazaoSocial.Contains(q) || x.Cnpj.Contains(q);
+                Expression<Func<Parceiro, bool>> expression = x => x.RazaoSocial.Contains(q) || x.Cnpj.Equals(q);
                 var parceiros = await _service.Procurar(expression);
                 return Ok(parceiros);
             }
