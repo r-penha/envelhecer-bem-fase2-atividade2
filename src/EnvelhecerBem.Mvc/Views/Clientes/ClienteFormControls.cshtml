@@ -1,0 +1,133 @@
+﻿@using EnvelhecerBem.Core.Domain
+@model EnvelhecerBem.Mvc.Models.ViewModels.Cliente
+<h4>Informações pessoais</h4>
+<hr />
+<div class="form-row">
+    <div class="form-group col-12 col-md-8">
+        <label asp-for="Nome"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Nome">
+        <small><span asp-validation-for="Nome" class="text-danger"></span></small>
+    </div>
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Cpf"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Cpf" placeholder="000.000.000-00">
+        <small><span asp-validation-for="Cpf" class="text-danger"></span></small>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-12 col-md-8">
+        <label asp-for="Email"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Email">
+        <small><span asp-validation-for="Email" class="text-danger"></span></small>
+    </div>
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Telefone"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Telefone" placeholder="Somente números">
+        <small><span asp-validation-for="Telefone" class="text-danger"></span></small>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-12 col-md-6">
+        <label asp-for="DataNascimento"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="DataNascimento" placeholder="DD/MM/AAAA">
+        <small><span asp-validation-for="DataNascimento" class="text-danger"></span></small>
+    </div>
+    <div class="form-group col-12 col-md-6">
+        <label asp-for="Sexo"></label>
+        <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+            <label class="btn btn-outline-secondary shadow-sm">
+                <input type="radio" asp-for="Sexo" value="1"><i class="fas fa-female mr-2"></i>Feminino
+            </label>
+            <label class="btn btn-outline-secondary shadow-sm">
+                <input type="radio" asp-for="Sexo" value="2"><i class="fas fa-male mr-2"></i>Masculino
+            </label>
+
+        </div>
+        <small><span asp-validation-for="Sexo" class="text-danger"></span></small>
+    </div>
+</div>
+<h4>Plano</h4>
+<hr />
+<div class="form-row">
+    <div class="form-group col-12">
+        <div class="btn-group btn-lg btn-group-toggle d-flex p-0" data-toggle="buttons">
+            <label class="btn btn-lg btn-outline-lynch text-uppercase shadow-sm">
+                <input type="radio" asp-for="Plano" value="1">Básico
+            </label>
+            <label class="btn btn-lg btn-outline-lynch text-uppercase shadow-sm">
+                <input type="radio" asp-for="Plano" value="2">Completo
+            </label>
+        </div>
+        <small><span asp-validation-for="Plano" class="text-danger"></span></small>
+    </div>
+</div>
+<h4>Endereço</h4>
+<hr />
+<div class="form-row">
+    <div class="form-group col-12">
+        <label asp-for="Logradouro"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Logradouro">
+        <small><span asp-validation-for="Logradouro" class="text-danger"></span></small>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-12 col-md-3">
+        <label asp-for="Numero"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Numero">
+        <small><span asp-validation-for="Numero" class="text-danger"></span></small>
+    </div>
+    <div class="form-group col-12 col-md-9">
+        <label asp-for="Complemento"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Complemento">
+        <small><span asp-validation-for="Complemento" class="text-danger"></span></small>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-12">
+        <label asp-for="Cidade"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Cidade">
+        <small><span asp-validation-for="Cidade" class="text-danger"></span></small>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-12 col-md-8">
+        <label asp-for="Uf"></label>
+        <select class="form-control shadow-sm" asp-for="Uf">
+            <option value="">Selecione</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+        <small><span asp-validation-for="Uf" class="text-danger"></span></small>
+    </div>
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Cep"></label>
+        <input type="text" class="form-control shadow-sm" asp-for="Cep" placeholder="00000000">
+        <small><span asp-validation-for="Cep" class="text-danger"></span></small>
+    </div>
+</div>
+<input type="hidden" asp-for="DataRegistro"/>

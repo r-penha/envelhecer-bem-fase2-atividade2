@@ -1,0 +1,118 @@
+﻿@using EnvelhecerBem.Core.Domain
+@using EnvelhecerBem.Mvc.Models
+@model List<EnvelhecerBem.Mvc.Models.ViewModels.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr/>
+
+<div class="d-flex flex-row justify-content-end py-3">
+    <a asp-action="Registrar" class="btn btn-primary btn-lg btn-block shadow">
+        <i class="fas fa-plus-circle mr-1"></i>Registrar novo cliente
+    </a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="d-flex justify-content-center p-5 shadow">
+        <span class="h3"><i class="fas fa-exclamation-triangle mr-2"></i>Registre um novo cliente!</span>
+    </div>
+}
+
+<div class="d-flex flex-column justify-content-start py-3">
+    @foreach (var p in Model)
+    {
+    <div class="d-block shadow p-3 mb-3">
+        <h4 class="d-flex">@p.Nome<span class="text-muted ml-auto h6 d-none d-sm-inline">Registrado em @p.DataRegistro</span></h4>
+        <span class="text-muted ml-auto h6 d-sm-none d-block">Registrado em @p.DataRegistro</span>
+        <hr />
+        <div class="row text-muted">
+            <div class="col-12 col-md-6 mb-3">
+                <span class="d-block">
+                    <span style="width: 1.6rem" class="d-inline-flex justify-content-center">
+                        <i class="fas fa-id-card mx-auto"></i>
+                    </span>
+                    @p.Cpf
+                </span>
+                <span class="d-block">
+                    <span style="width: 1.6rem" class="d-inline-flex justify-content-center">
+                        <i class="fas fa-envelope mx-auto"></i>
+                    </span>
+                    @p.Email
+                </span>
+                <span class="d-block">
+                    <span style="width: 1.6rem" class="d-inline-flex justify-content-center">
+                        <i class="fas fa-phone mx-auto"></i>
+                    </span>
+                    @p.Telefone
+                </span>
+                <span class="d-block">
+                    <span style="width: 1.6rem" class="d-inline-flex justify-content-center">
+                        <i class="fas fa-star-of-life mx-auto"></i>
+                    </span>
+                    @p.DataNascimento
+                </span>
+                <span class="d-block">
+                    <span style="width: 1.6rem" class="d-inline-flex justify-content-center">
+                        <i class="fas fa-box mx-auto"></i>
+                    </span>
+                    @if (p.Plano == TipoPlano.PlanoBasico)
+                    {
+                        <span>Plano Básico </span>
+                    }
+                    else
+                    {
+                        <span>Plano Completo</span>
+                    }
+                </span>
+                @if (p.Sexo == Sexo.Feminino)
+                {
+                    <span class="d-block">
+                        <span style="width: 1.6rem" class="d-inline-flex justify-content-center">
+                            <i class="fas fa-female mx-auto"></i>
+                        </span>
+                        Sexo Feminino
+                    </span>
+                }
+                else
+                {
+                    <span class="d-block">
+                        <span style="width: 1.6rem" class="d-inline-flex justify-content-center">
+                            <i class="fas fa-male mx-auto"></i>
+                        </span>
+                        Sexo Masculino
+                    </span>
+                }
+            </div>
+            <div class="col-12 col-md-6">
+                <span class="d-block">
+                    <span style="width: 1.6rem" class="d-inline-flex justify-content-center align-top mt-1">
+                        <i class="fas fa-map-marker-alt mx-auto"></i>
+                    </span>
+                    <address class="d-inline-block text-nowrap">
+                        @foreach (var line in @OutputHelper.FormatarEndereco(p).Split(Environment.NewLine))
+                        {
+                            @line
+                            <br />
+                        }
+                    </address>
+                </span>
+            </div>
+        </div>
+
+        <hr />
+        <div class="form-group d-flex justify-content-end">
+            <a class="btn btn-japonica shadow" asp-action="Excluir" asp-route-id="@p.Id">
+                <i class="fas fa-trash-alt mr-1"></i>Excluir
+            </a>
+            <a class="btn btn-secondary shadow ml-2" asp-action="Editar" asp-route-id="@p.Id">
+                <i class="fas fa-edit mr-1"></i>Editar
+            </a>
+        </div>
+    </div>
+    }
+</div>

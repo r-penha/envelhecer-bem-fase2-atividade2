@@ -1,0 +1,3 @@
+Segue o endereço do repositório no GitHub com a atividade 1 da fase 2 "commitada" na branch master.
+
+https://github.com/r-penha/envelhecer-bem

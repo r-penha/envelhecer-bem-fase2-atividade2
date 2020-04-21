@@ -1,0 +1,19 @@
+﻿@model EnvelhecerBem.Mvc.Models.ViewModels.Cliente
+
+@{
+    ViewBag.Title = "Clientes";
+    Layout = "_Layout";
+}
+<h2>Editar cliente</h2>
+<hr/>
+<div class="d-flex justify-content-center py-3">
+    <div class="col-12 col-md-8 shadow mb-3 pt-3">
+        <form asp-action="Editar">
+            <partial name="ClienteFormControls" model="Model"/>
+            <div class="form-group d-flex justify-content-end">
+                <a asp-action="Index" class="btn btn-japonica shadow mr-2">Cancelar</a>
+                <button class="btn btn-primary shadow">Editar</button>
+            </div>
+        </form>
+    </div>
+</div>

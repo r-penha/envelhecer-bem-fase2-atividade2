@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EnvelhecerBem.Api</name>
+    </assembly>
+    <members>
+        <member name="M:EnvelhecerBem.Api.Controllers.ClientesController.Post(EnvelhecerBem.Core.Domain.Cliente)">
+            <summary>
+            Adiciona novo cliente
+            </summary>
+            <remarks>
+            O cabeçalho da resposta <i><strong>Location</strong></i> informará a url do novo <i>resource</i> criado.
+            </remarks>
+            <param name="cliente"></param>
+            <response code="201">ID do novo cliente criado</response>
+        </member>
+        <member name="M:EnvelhecerBem.Api.Controllers.ParceirosController.Post(EnvelhecerBem.Core.Domain.Parceiro)">
+            <summary>
+            Adiciona novo parceiro
+            </summary>
+            <remarks>
+            O cabeçalho da resposta <i><strong>Location</strong></i> informará a url do novo <i>resource</i> criado.
+            </remarks>
+            <param name="parceiro"></param>
+            <response code="201">ID do novo parceiro criado</response>
+        </member>
+    </members>
+</doc>

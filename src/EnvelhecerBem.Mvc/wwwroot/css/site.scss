@@ -1,0 +1,30 @@
+﻿$theme-colors: (
+        primary: #616e91,
+        secondary: #666666,
+        info: #84cfda,
+        success: #5db979,
+        warning: #daa941,
+        danger: #f44336,
+        aqua-haze: #edf4f3,
+        apricot: #f09183,
+        bermuda: #84cfda,
+        japonica: #d56961,
+        lynch: #616e91
+);
+
+$enable-rounded: false;
+
+/* import only the necessary Bootstrap files */
+@import '../lib/bootstrap/scss/functions';
+@import '../lib/bootstrap/scss/variables';
+/* finally, import Bootstrap to set the changes! */
+@import '../lib/bootstrap/scss/bootstrap.scss';
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

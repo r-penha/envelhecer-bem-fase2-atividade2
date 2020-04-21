@@ -1,0 +1,21 @@
+﻿@using EnvelhecerBem.Mvc.Controllers
+<nav class="navbar navbar-expand-lg navbar-dark bg-lynch shadow-lg mb-4">
+    <div class="container">
+        <a class="navbar-brand btn btn-outline-aqua-haze" asp-action="Index" asp-controller="Home">
+            <strong><span class="text-bermuda">ENVELHECER</span><span class="text-apricot">BEM</span></strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li>
+                    @Html.MenuLink("Clientes", "Index", "Clientes")
+                </li>
+                <li>
+                    @Html.MenuLink("Parceiros", "Index", "Parceiros")
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
