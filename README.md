@@ -17,15 +17,15 @@ O **Swagger UI** foi configurado para documentar a API. A URL de acesso executan
 
 ## Imagens do interface do Swagger
 
-![Swagger UI](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI.png)
-![Schemas](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Schemas.png)
+![Swagger UI](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI.png)
+![Schemas](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Schemas.png)
 
-![Endpoint Clientes](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Clientes_API.png)
-![Registrar Cliente](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Registrar_Cliente.png)
-![Pesquisar Clientes](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Pesquisar_Clientes.png)
-![Excluir Cliente](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Excluir_Cliente.png)
+![Endpoint Clientes](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Clientes_API.png)
+![Registrar Cliente](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Registrar_Cliente.png)
+![Pesquisar Clientes](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Pesquisar_Clientes.png)
+![Excluir Cliente](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Excluir_Cliente.png)
 
-![Endpoint Parceiros](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Parceiros.png)
-![Registro de Parceiro](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Registrar_Parceiro.png)
-![Alterar de Parceiro](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Alterar_Parceiro.png)
-![Pesquisar de Parceiros](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Pesquisar_Parceiros.png)
+![Endpoint Parceiros](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Parceiros.png)
+![Registro de Parceiro](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Registrar_Parceiro.png)
+![Alterar de Parceiro](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Alterar_Parceiro.png)
+![Pesquisar de Parceiros](https://github.com/r-penha/envelhecer-bem-fase2-atividade2/blob/master/docs/images/Swagger_UI_Pesquisar_Parceiros.png)
