@@ -1,3 +1,5 @@
+# Envelhecer Bem API
+
 ## Plataforma e tecnologias utilizadas
 
 A atividade foi desenvolvida utilizando-se as seguintes tecnologias
@@ -8,112 +10,22 @@ A atividade foi desenvolvida utilizando-se as seguintes tecnologias
 - Bootstrap
 - Entity Framework Core
 
-## Principais detalhes de implementação
+O projeto referente à API é o **EnvelhecerBem.Api**.
 
-- Bootstrap customizado através de SASS
-- Lógica de negócio encapsulada em _Application Services_ acionados pelos _Controllers_
-- _View Models_ utilizados como protocolo de dados para as requisições
-- Validação declarativa implementada através de atributos nas _View Models_
-- _Extension methods_ criados para o mapeamento das _View Models_ para os _Domain Models_
-- Criada a classe abstrata _Repository<T, TId>_ para encapsular toda lógica comum de acesso a dados
-```c#
-public abstract class Repository<T, TId> : IRepository<T, TId> 
-    where T : class
-{
-    public DbSet<T> Collection { get; }
+O **Swagger UI** foi configurado para documentar a API. A URL de acesso executando localmente é 
+![http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
 
-    protected Repository(DbSet<T> dbSet)
-    {
-        Collection = dbSet ?? throw new ArgumentNullException(nameof(dbSet));
-    }
+## Imagens do interface do Swagger
 
-    public async Task<T> Load(TId id)
-    {
-        return await Collection.FindAsync(id);
-    }
+![Swagger UI](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI.png)
+![Schemas](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Schemas.png)
 
-    public async Task Add(T entity)
-    {
-        await Collection.AddAsync(entity);
-    }
+![Endpoint Clientes](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Clientes_API.png)
+![Registrar Cliente](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Registrar_Cliente.png)
+![Pesquisar Clientes](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Pesquisar_Clientes.png)
+![Excluir Cliente](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Excluir_Cliente.png)
 
-    public async Task Update(T entity)
-    {
-        await Task.FromResult(Collection.Update(entity));
-    }
-
-    public async Task Delete(TId entityId)
-    {
-        var entity = await Collection.FindAsync(entityId);
-        if (entity == null) return;
-        await Task.FromResult(Collection.Remove(entity));
-    }
-
-    public Task<IEnumerable<T>> ListAll()
-    {
-        return Task.FromResult(Collection.AsEnumerable());
-    }
-
-    public Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
-    {
-        return Task.FromResult(Collection.Where(expression).AsEnumerable());
-    }
-}
-```
-- Criada a interface _IUnitOfWork_ e a implementação _EfCoreUnitOfWork_ para tratar controlar o contexto transacional das requisições
-```c#
-public interface IUnitOfWork
-{
-    Task Commit();
-}
-
-public class EfCoreUnitOfWork : IUnitOfWork
-{
-    private readonly DbContext _dbContext;
-
-    public EfCoreUnitOfWork(AppDbContext dbContext) => _dbContext = dbContext;
-
-    public Task Commit() => _dbContext.SaveChangesAsync();
-}
-```
-- Criado um _extension method_ para iniciar o contexto da aplicação
-```c#
-public static class AppModule
-{
-	public static IMvcBuilder AddAppModule(this IMvcBuilder builder, IConfiguration configuration)
-	{
-		var connectionString = configuration.GetConnectionString("DefaultConnection");
-		
-		builder.AddApplicationPart(typeof(AppModule).Assembly);
-
-		builder.Services
-			   .AddDbContext<AppDbContext>(o => o.UseSqlServer(connectionString))
-			   .AddScoped<IDbConnection>(c => new SqlConnection(connectionString))
-			   .AddScoped<IUnitOfWork, EfCoreUnitOfWork>()
-			   .AddScoped<IParceiroRepository, ParceiroRepository>()
-			   .AddScoped<IClienteRepository, ClienteRepository>()
-			   .AddScoped<ParceiroApplicationService>()
-			   .AddScoped<ClienteApplicationService>();
-
-		return builder;
-	}
-}
-```
-
-## Imagens de algumas interfaces
-
-![Edição de cliente](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/edicao_cliente.png)
-
-![Edição de parceiro](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/edicao_parceiro.png)
-
-![Lista vazia](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/lista_clientes_vazia.png)
-
-![Lista de clientes](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/listagem_cliente.png)
-
-![Lista de parceiros](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/listagem_parceiros.png)
-
-![Lista mobile](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/lista_parceiros_mobile.png)
-
-![Menu mobile](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/lista_parceiros_menu_mobile.png)
-
-![Form mobile](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/registro_parceiro_mobile.png)
+![Endpoint Parceiros](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Parceiros.png)
+![Registro de Parceiro](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Registrar_Parceiro.png)
+![Alterar de Parceiro](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Alterar_Parceiro.png)
+![Pesquisar de Parceiros](https://github.com/r-penha/envelhecer-bem/blob/master/docs/images/Swagger_UI_Pesquisar_Parceiros.png)

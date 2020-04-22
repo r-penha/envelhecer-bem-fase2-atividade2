@@ -147,7 +147,7 @@ namespace EnvelhecerBem.Api.Controllers
             try
             {
                 if (string.IsNullOrWhiteSpace(q)) return Ok(await _service.ListarClientes());
-                Expression<Func<Cliente, bool>> expression = x => x.Nome.Contains(q) || x.Cpf.Contains(q);
+                Expression<Func<Cliente, bool>> expression = x => x.Nome.Contains(q) || x.Cpf.Equals(q);
                 var clientes = await _service.Procurar(expression);
                 return Ok(clientes);
             }

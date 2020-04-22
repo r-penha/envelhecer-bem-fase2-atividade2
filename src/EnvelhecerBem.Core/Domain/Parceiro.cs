@@ -18,7 +18,7 @@ namespace EnvelhecerBem.Core.Domain
         public string Contato { get; set; }
 
         [Required]
-        [RegularExpression(@"\d{10,11}^$")]
+        [RegularExpression(@"^\d{10,11}$")]
         [MaxLength(11)]
         public string Telefone { get; set; }
 
