@@ -12,8 +12,8 @@ A atividade foi desenvolvida utilizando-se as seguintes tecnologias
 
 O projeto referente à API é o **EnvelhecerBem.Api**.
 
-O **Swagger UI** foi configurado para documentar a API. A URL de acesso executando localmente é 
-![http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
+O **Swagger UI** foi configurado para documentar a API. A URL de acesso executando localmente é
+[http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
 
 ## Imagens do interface do Swagger
 
